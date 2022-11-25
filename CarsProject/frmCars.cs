@@ -16,8 +16,11 @@ namespace CarsProject
 {
     public partial class frmCars : Form
     {
-        //Set up Database COnnection
-        OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Agaonm\Downloads\CarsDatabase.accdb");
+        //!!!!!!MUST CHANGE THIS TO YOUR FILE PATH Set File Path to Database!!!
+        const string FilePath = "C:\\Users\\Agaonm\\Downloads\\CarsDatabase.accdb";
+
+        //Set up Database Connection
+        OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+FilePath);
         // Set up Database Adapter
         OleDbDataAdapter adapter;
         //Set up Data Table 
