@@ -1,0 +1,12 @@
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.csproj.AssemblyReference.cache
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.csproj.SuggestedBindingRedirects.cache
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.frmCars.resources
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.Properties.Resources.resources
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.csproj.GenerateResource.cache
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.csproj.CoreCompileInputs.cache
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\bin\Debug\CarsProject.exe.config
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\bin\Debug\CarsProject.exe
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\bin\Debug\CarsProject.pdb
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.exe
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.pdb
+C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.frmSearch.resources
