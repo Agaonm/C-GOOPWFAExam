@@ -48,8 +48,7 @@ namespace CarsProject
             tbRegNo.Text = dt.Rows[index]["VehicleRegNo"].ToString();
             tbMake.Text = dt.Rows[index]["Make"].ToString();
             tbEngine.Text = dt.Rows[index]["EngineSize"].ToString();
-            //Convert Date and time to just Date
-            tbDate.Text = Convert.ToDateTime(dt.Rows[index]["DateRegistered"]).ToString("dd/MM/yyyy");
+            dbDateRegistered.Text = dt.Rows[index]["DateRegistered"].ToString();
             //Concert Number to Currency
             tbRent.Text = "€" + Convert.ToDouble(dt.Rows[index]["RentalPerDay"]).ToString("#,##,0.00");
             
@@ -129,7 +128,7 @@ namespace CarsProject
             //Must have parameters in the same order you put them in Query
             cmd.Parameters.AddWithValue("@Make", tbMake.Text);
             cmd.Parameters.AddWithValue("@EngineSize", tbEngine.Text);
-            cmd.Parameters.AddWithValue("@DateRegistered", tbDate.Text);
+            cmd.Parameters.AddWithValue("@DateRegistered", dbDateRegistered.Text);
             cmd.Parameters.AddWithValue("@RentalPerDay", tbRent.Text.Remove(0, 1));
             cmd.Parameters.AddWithValue("@Available", cbAvailable.Checked); 
             cmd.Parameters.AddWithValue("@VehicleRegNo", tbRegNo.Text);
@@ -151,7 +150,7 @@ namespace CarsProject
             cmd.Parameters.AddWithValue("@VehicleRegNo", tbRegNo.Text);
             cmd.Parameters.AddWithValue("@Make", tbMake.Text);
             cmd.Parameters.AddWithValue("@EngineSize", tbEngine.Text);
-            cmd.Parameters.AddWithValue("@DateRegistered", tbDate.Text);
+            cmd.Parameters.AddWithValue("@DateRegistered", dbDateRegistered.Text);
             cmd.Parameters.AddWithValue("@RentalPerDay", tbRent.Text.Trim('€'));
             cmd.Parameters.AddWithValue("@Available", cbAvailable.Checked);
 

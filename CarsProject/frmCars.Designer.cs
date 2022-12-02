@@ -39,7 +39,6 @@
             this.tbRegNo = new System.Windows.Forms.TextBox();
             this.tbMake = new System.Windows.Forms.TextBox();
             this.tbEngine = new System.Windows.Forms.TextBox();
-            this.tbDate = new System.Windows.Forms.TextBox();
             this.tbRent = new System.Windows.Forms.TextBox();
             this.cbAvailable = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dbDateRegistered = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -148,14 +148,6 @@
             this.tbEngine.Size = new System.Drawing.Size(201, 20);
             this.tbEngine.TabIndex = 2;
             this.toolTip1.SetToolTip(this.tbEngine, "Enter Vehicle Engine Size");
-            // 
-            // tbDate
-            // 
-            this.tbDate.Location = new System.Drawing.Point(217, 268);
-            this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(201, 20);
-            this.tbDate.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.tbDate, "What Date was the Vehicle Registered on");
             // 
             // tbRent
             // 
@@ -292,12 +284,20 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // dbDateRegistered
+            // 
+            this.dbDateRegistered.Location = new System.Drawing.Point(217, 263);
+            this.dbDateRegistered.Name = "dbDateRegistered";
+            this.dbDateRegistered.Size = new System.Drawing.Size(200, 20);
+            this.dbDateRegistered.TabIndex = 3;
+            // 
             // frmCars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(674, 509);
+            this.Controls.Add(this.dbDateRegistered);
             this.Controls.Add(this.tbTotalEntries);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnCancel);
@@ -311,7 +311,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cbAvailable);
             this.Controls.Add(this.tbRent);
-            this.Controls.Add(this.tbDate);
             this.Controls.Add(this.tbEngine);
             this.Controls.Add(this.tbMake);
             this.Controls.Add(this.tbRegNo);
@@ -342,7 +341,6 @@
         private System.Windows.Forms.TextBox tbRegNo;
         private System.Windows.Forms.TextBox tbMake;
         private System.Windows.Forms.TextBox tbEngine;
-        private System.Windows.Forms.TextBox tbDate;
         private System.Windows.Forms.TextBox tbRent;
         private System.Windows.Forms.CheckBox cbAvailable;
         private System.Windows.Forms.Button button1;
@@ -357,5 +355,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DateTimePicker dbDateRegistered;
     }
 }
