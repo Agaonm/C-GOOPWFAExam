@@ -123,6 +123,7 @@ namespace CarsProject
             string sql = "UPDATE tblCars SET [Make] = ?, [EngineSize] = ?, [DateRegistered] = ?, [RentalPerDay] = ?, [Available] = ? WHERE [VehicleRegNo] = ? ";
             //Start command
             cmd = new OleDbCommand(sql, conn);
+            
             //Sets paramters in [] to the variable next to it IN ORDER,
             //e.g [EngineSize] = @EngineSize and tbEngine.Text = 2nd ?
             //Must have parameters in the same order you put them in Query
@@ -133,7 +134,7 @@ namespace CarsProject
             cmd.Parameters.AddWithValue("@Available", cbAvailable.Checked); 
             cmd.Parameters.AddWithValue("@VehicleRegNo", tbRegNo.Text);
 
-
+            
             ExecuteCommand();
             //showData(pos);
         }
@@ -195,6 +196,7 @@ namespace CarsProject
                 //Close the Database connection
                 conn.Close();
                 //Update the Program 
+                
                 dt.Reset();
                 adapter.Fill(dt);
                 showData(pos);
