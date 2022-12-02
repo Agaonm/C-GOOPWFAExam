@@ -57,17 +57,25 @@ namespace CarsProject
             }
             else
             {
-                //Dunno what all of Big Gs bullshit adding "" to certain fields was about because its not needed
+                // -- Working on it -- 
                 string sql = "SELECT * FROM tblCars WHERE " + cboField.Text + " " + cboOperator.Text + " '" + tbValue.Text + "'";
 
-                //Setup Adapter to load data into a dataTable
-                adapter = new OleDbDataAdapter(sql, conn);
-                //Clear Previous Search
-                dt.Rows.Clear();
-                //Fill DataTable 
-                adapter.Fill(dt);
-                //Add DataTable to Grid View
-                dataGridView1.DataSource = dt;
+                try
+                {
+                    //Setup Adapter to load data into a dataTable
+                    adapter = new OleDbDataAdapter(sql, conn);
+                    //Clear Previous Search
+                    dt.Rows.Clear();
+                    //Fill DataTable 
+                    adapter.Fill(dt);
+                    //Add DataTable to Grid View
+                    dataGridView1.DataSource = dt;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
         }        
     }
