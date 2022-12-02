@@ -10,3 +10,16 @@ C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\b
 C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.exe
 C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.pdb
 C:\FIT Course\Lesson 31 Thursday 101122 Files-20221110\CarsProject\CarsProject\obj\Debug\CarsProject.frmSearch.resources
+C:\gitprojs\C-GOOPWFAExam\CarsProject\bin\Debug\CarsDatabase.accdb
+C:\gitprojs\C-GOOPWFAExam\CarsProject\bin\Debug\CarsProject.exe.config
+C:\gitprojs\C-GOOPWFAExam\CarsProject\bin\Debug\CarsProject.exe
+C:\gitprojs\C-GOOPWFAExam\CarsProject\bin\Debug\CarsProject.pdb
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.csproj.AssemblyReference.cache
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.csproj.SuggestedBindingRedirects.cache
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.frmCars.resources
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.frmSearch.resources
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.Properties.Resources.resources
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.csproj.GenerateResource.cache
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.csproj.CoreCompileInputs.cache
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.exe
+C:\gitprojs\C-GOOPWFAExam\CarsProject\obj\Debug\CarsProject.pdb

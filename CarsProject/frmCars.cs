@@ -16,11 +16,8 @@ namespace CarsProject
 {
     public partial class frmCars : Form
     {
-        //!!!!!!MUST CHANGE THIS TO YOUR FILE PATH Set File Path to Database!!!
-        const string FilePath = "C:\\Users\\Agaonm\\Downloads\\CarsDatabase.accdb";
-
         //Set up Database Connection
-        OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+FilePath);
+        OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\CarsDatabase.accdb");
         // Set up Database Adapter
         OleDbDataAdapter adapter;
         //Set up Data Table 
@@ -55,7 +52,8 @@ namespace CarsProject
             tbDate.Text = Convert.ToDateTime(dt.Rows[index]["DateRegistered"]).ToString("dd/MM/yyyy");
             //Concert Number to Currency
             tbRent.Text = "€" + Convert.ToDouble(dt.Rows[index]["RentalPerDay"]).ToString("#,##,0.00");
-           
+            
+
             //Check Available set checkbox to True
             if (dt.Rows[index]["Available"].ToString() == "True"){
                 cbAvailable.Checked = true;
@@ -122,11 +120,9 @@ namespace CarsProject
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //Setup SQL Query
-            string sql = "UPDATE tblCars SET [Make] = ?, [EngineSize] = ?, [DateRegistered] = ?, [RentalPerDay] = ? WHERE [VehicleRegNo] = ? ";
+            string sql = "UPDATE tblCars SET [Make] = ?, [EngineSize] = ?, [DateRegistered] = ?, [RentalPerDay] = ?, [Available] = ? WHERE [VehicleRegNo] = ? ";
             //Start command
             cmd = new OleDbCommand(sql, conn);
-            //Open Connection to Database
-            conn.Open();
 
             //Sets paramters in [] to the variable next to it IN ORDER,
             //e.g [EngineSize] = @EngineSize and tbEngine.Text = 2nd ?
@@ -134,17 +130,13 @@ namespace CarsProject
             cmd.Parameters.AddWithValue("@Make", tbMake.Text);
             cmd.Parameters.AddWithValue("@EngineSize", tbEngine.Text);
             cmd.Parameters.AddWithValue("@DateRegistered", tbDate.Text);
-            cmd.Parameters.AddWithValue("@RentalPerDay", tbRent.Text);
-            //cmd.Parameters.AddWithValue("@Available", cbAvailable.Text); ####HAVENT GOT THIS WORKING YET####
+            cmd.Parameters.AddWithValue("@RentalPerDay", tbRent.Text.Remove(0, 1));
+            cmd.Parameters.AddWithValue("@Available", cbAvailable.Checked); 
             cmd.Parameters.AddWithValue("@VehicleRegNo", tbRegNo.Text);
 
-            //Run the Query
-            cmd.ExecuteNonQuery();
 
-            //Update the Program 
-            updateScreen();
-            //Close the Datbase connection
-            conn.Close();
+            ExecuteCommand();
+            //showData(pos);
         }
 
         //Add Entry
@@ -154,23 +146,17 @@ namespace CarsProject
             string sql = "INSERT INTO tblCars ([VehicleRegNo],[Make],[EngineSize],[DateRegistered],[RentalPerDay]) VALUES (?,?,?,?,?)";
             //Start Command
             cmd = new OleDbCommand(sql, conn);
-            //Open Database Connection
-            conn.Open();
 
             //Set parameters for Query, See Above for Explination
             cmd.Parameters.AddWithValue("@VehicleRegNo", tbRegNo.Text);
             cmd.Parameters.AddWithValue("@Make", tbMake.Text);
             cmd.Parameters.AddWithValue("@EngineSize", tbEngine.Text);
             cmd.Parameters.AddWithValue("@DateRegistered", tbDate.Text);
-            cmd.Parameters.AddWithValue("@RentalPerDay", tbRent.Text);
-            //cmd.Parameters.AddWithValue("@Available", cbAvailable.Text); ####Not working yet####
-            
+            cmd.Parameters.AddWithValue("@RentalPerDay", tbRent.Text.Trim('€'));
+            cmd.Parameters.AddWithValue("@Available", cbAvailable.Checked);
+
             //Run the Query
-            cmd.ExecuteNonQuery();
-            //Close connection
-            conn.Close();
-            //Update the program
-            updateScreen();
+            ExecuteCommand();
         }
         
         //Delete an entry
@@ -180,26 +166,14 @@ namespace CarsProject
             string sql = "DELETE FROM tblCars WHERE [VehicleRegNo] = ?";
             //Start Command
             cmd = new OleDbCommand(sql, conn);
-            //Open Database Connection
-            conn.Open();
 
             //Set Parameter
             cmd.Parameters.AddWithValue("@VehicleRegNo", tbRegNo.Text);
+            
             //Run Query
-            cmd.ExecuteNonQuery();
-            //Close Connection
-            conn.Close();
-            //Update Program
-            updateScreen();
+            ExecuteCommand();
             //Goes back one - Not Needed!!
             button4.PerformClick();
-        }
-
-        private void updateScreen()
-        {
-            dt.Reset();
-            adapter.Fill(dt);
-            this.Refresh();
         }
 
         //Open the Search Form
@@ -209,6 +183,32 @@ namespace CarsProject
             frmSearch frmSearch = new frmSearch();
             //Show search Form
             frmSearch.Show();
+        }
+
+        private void ExecuteCommand()
+        {
+            try
+            {
+                //Open Connection to Database
+                conn.Open();
+                //Run the Query
+                cmd.ExecuteNonQuery();
+                //Close the Database connection
+                conn.Close();
+                //Update the Program 
+                dt.Reset();
+                adapter.Fill(dt);
+                showData(pos);
+            }
+            catch(Exception ex)
+            {
+                conn.Close();
+                MessageBox.Show($"Something went really wrong!!!{Environment.NewLine}{ex.Message}");
+            }  
+        }
+        private void DropEuro(string rentPerDayValue)
+        {
+            
         }
     }
 }

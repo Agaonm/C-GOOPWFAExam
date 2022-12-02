@@ -14,11 +14,8 @@ namespace CarsProject
 {
     public partial class frmSearch : Form
     {
-        //!!!!!!MUST CHANGE THIS TO YOUR FILE PATH Set File Path to Database!!!
-        const string FilePath = "C:\\Users\\Agaonm\\Downloads\\CarsDatabase.accdb";
-
         //Set up Database Connection
-        OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+FilePath);
+        OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\CarsDatabase.accdb");
         //Set up Database Adapter
         OleDbDataAdapter adapter;
         //Set up Data Table
@@ -35,6 +32,7 @@ namespace CarsProject
             //Add Fields to Combo Boxes
             cboField.Items.Add("Make");
             cboField.Items.Add("EngineSize");
+            cboField.Items.Add("DateRegistered");
             cboField.Items.Add("RentalPerDay");
             cboField.Items.Add("Available");
 
@@ -53,17 +51,24 @@ namespace CarsProject
        
         private void btnRun_Click(object sender, EventArgs e)
         {
-            //string sql="SELECT * FROM tblCars WHERE Make = 'HondaS'";
-            string sql = "SELECT * FROM tblCars WHERE " + cboField.Text + " " + cboOperator.Text + " '" + tbValue.Text + "'";       
+            if (string.IsNullOrEmpty(cboField.Text) || string.IsNullOrEmpty(cboOperator.Text) || string.IsNullOrEmpty(tbValue.Text))
+            {
+                MessageBox.Show("Fill in Boxes");
+            }
+            else
+            {
+                //Dunno what all of Big Gs bullshit adding "" to certain fields was about because its not needed
+                string sql = "SELECT * FROM tblCars WHERE " + cboField.Text + " " + cboOperator.Text + " '" + tbValue.Text + "'";
 
-            //Setup Adapter to load data into a dataTable
-            adapter = new OleDbDataAdapter(sql, conn); 
-            //Clear Previous Search
-            dt.Rows.Clear();
-            //Fill DataTable 
-            adapter.Fill(dt);
-            //Add DataTable to Grid View
-            dataGridView1.DataSource = dt;
+                //Setup Adapter to load data into a dataTable
+                adapter = new OleDbDataAdapter(sql, conn);
+                //Clear Previous Search
+                dt.Rows.Clear();
+                //Fill DataTable 
+                adapter.Fill(dt);
+                //Add DataTable to Grid View
+                dataGridView1.DataSource = dt;
+            }
         }        
     }
 }
